@@ -31,7 +31,8 @@ public class WriterBenchmark {//Klasse zum Benchmarking von FileWriter und Buffe
 
         System.out.println("\nSpeicherplatzvergleich der Dateien:");// Ankündigung des Speicherplatzvergleichs der Dateien
         System.out.println("FileWriter-Dateigroesse: " + Speicherkomplexitaet(FileWriter) + " Bytes");// Ausgabe der Dateigröße des FileWriters
-        System.out.println("BufferedWriter-Dateigroesse: " + Speicherkomplexitaet(BufferedWriter) + " Bytes");// Ausgabe der Dateigröße des BufferedWriters
+        System.out.println("BufferedWriter-Dateigroesse: " + Speicherkomplexitaet(BufferedWriter) + " Bytes");// Ausgabe der Dateigröße 
+        //des BufferedWriters
     }
 
     private static long Laufzeitkomplexitaet(WriterSupplier supplier, String fileName) {// Methode zur Berechnung der Laufzeitkomplexität
@@ -42,7 +43,8 @@ public class WriterBenchmark {//Klasse zum Benchmarking von FileWriter und Buffe
                 writer.write("Datensatz " + i + "\n");// Schreiben von Datensätzen mittels des Writers in die Datei
             }
         } catch (IOException e) {
-            System.err.println("Fehler beim Schreiben der Datei: " + e.getMessage());// Fehlermeldung, falls ein Fehler beim Schreiben der Datei auftritt
+            System.err.println("Fehler beim Schreiben der Datei: " + e.getMessage());// Fehlermeldung, falls ein Fehler 
+            //beim Schreiben der Datei auftritt
         }
 
 
@@ -71,7 +73,8 @@ public class WriterBenchmark {//Klasse zum Benchmarking von FileWriter und Buffe
         }
     }
 
-    static class BufferedWriterSupplier implements WriterSupplier {// Methode zur Erstellung eines BufferedWriters auf Basis der WriterSupplier-Schnittstelle
+    static class BufferedWriterSupplier implements WriterSupplier {// Methode zur Erstellung eines BufferedWriters auf Basis der 
+        //WriterSupplier-Schnittstelle
         @Override
         public Writer getWriter(String Dateiname) throws IOException {// Methode zum Abrufen eines BufferedWritersmit dem angegebenen Dateinamen
             return new BufferedWriter(new FileWriter(Dateiname));// Erstellung eines BufferedWriter-Objekts mit dem Dateinamen, das einen 
