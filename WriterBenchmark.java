@@ -1,10 +1,9 @@
-import java.io.*;// Entält die Methoden zur Erstelllung von FileWriter und BufferedWriter
-import java.util.concurrent.TimeUnit;//Enthält die Methoden zur Speicherplatznutzunng und Laufzeitkomplexität
-
+import java.io.*;// Enthält die Methoden zur Erstellung von FileWriter und BufferedWriter
+import java.util.concurrent.TimeUnit;//Enthält die Methoden zur Speicherplatznutzung und Laufzeitkomplexität
 public class WriterBenchmark {//Klasse zum Benchmarking von FileWriter und BufferedWriter
-    private static final int Datensatz_Groesse = 500;// Anzahl der Datensätze die jeweils in die Datei geschrieben werden
-    private static final String FileWriter = "filewriter.txt";// Dateiname für die Speicherung mitttels FileWriter
-    private static final String BufferedWriter = "bufferedriter.txt";// Dateiname für die Speicherung mitttels BufferedWriter
+    private static final int Datensatz_Groesse = 500;// Anzahl der Datensätze, die jeweils in die Datei geschrieben werden
+    private static final String FileWriter = "filewriter.txt";// Dateiname für die Speicherung mittels FileWriter
+    private static final String BufferedWriter = "bufferedriter.txt";// Dateiname für die Speicherung mittels BufferedWriter
 
     public static void main(String[] args) {
         vergleiche_Writer();// Methode zum Vergleich des FileWriters und BufferedWriters aufrufen
@@ -25,8 +24,10 @@ public class WriterBenchmark {//Klasse zum Benchmarking von FileWriter und Buffe
         System.out.println("BufferedWriter: " + bufferedWriter_Zeit + " ms");// Ausgabe der Laufzeit des BufferedWriters in Millisekunden
 
         System.out.println("\nSpeicherverbrauch waehrend des Schreibens:");// Ankündigung des Speicherverbrauchs während des Schreibens
-        System.out.println("FileWriter: " + fileWriter_Speicher + " Bytes");// Ausgabe des Speicherplatzverbrauches des FileWriters während des Schreibens
-        System.out.println("BufferedWriter: " + bufferedWriter_Speicher + " Bytes");// Ausgabe des Speicherplatzverbrauches des BufferedWriters während des Schreibens
+        System.out.println("FileWriter: " + fileWriter_Speicher + " Bytes");// Ausgabe des Speicherplatzverbrauches des FileWriters während 
+        //des Schreibens
+        System.out.println("BufferedWriter: " + bufferedWriter_Speicher + " Bytes");// Ausgabe des Speicherplatzverbrauches des BufferedWriters  
+        //während des Schreibens
 
         System.out.println("\nSpeicherplatzvergleich der Dateien:");// Ankündigung des Speicherplatzvergleichs der Dateien
         System.out.println("FileWriter-Dateigroesse: " + Speicherkomplexitaet(FileWriter) + " Bytes");// Ausgabe der Dateigröße des FileWriters
@@ -51,7 +52,7 @@ public class WriterBenchmark {//Klasse zum Benchmarking von FileWriter und Buffe
 
     private static long Speicherkomplexitaet(String Dateiname) {// Methode zur Berechnung der Dateigröße
         File file = new File(Dateiname);// Erstellung eines File-Objekts mit dem angegebenen Dateinamen
-        return file.exists() ? file.length() : -1;// Rückgabe der Dateigröße in Bytes, falls die Datei existiert, ansonsten -1
+        return file.exists() ? file.length() : -1;// Rückgabe der Dateigröße in Bytes, falls die Datei existiert, ansonsten - 1
     }
 
     private static long Speicherplatznutzung() {
@@ -72,8 +73,8 @@ public class WriterBenchmark {//Klasse zum Benchmarking von FileWriter und Buffe
 
     static class BufferedWriterSupplier implements WriterSupplier {// Methode zur Erstellung eines BufferedWriters auf Basis der WriterSupplier-Schnittstelle
         @Override
-        public Writer getWriter(String Dateiname) throws IOException {// Methode zum Abrufen eines BufferedWriters mit dem angegebenen Dateinamen
-            return new BufferedWriter(new FileWriter(Dateiname));// Erstellung eines BufferedWriter-Objekts mit dem Dateinamen, das einen FileWriter verwendet
-        }
+        public Writer getWriter(String Dateiname) throws IOException {// Methode zum Abrufen eines BufferedWritersmit dem angegebenen Dateinamen
+            return new BufferedWriter(new FileWriter(Dateiname));// Erstellung eines BufferedWriter-Objekts mit dem Dateinamen, das einen 
+            //FileWriter verwendet
     }
 }
