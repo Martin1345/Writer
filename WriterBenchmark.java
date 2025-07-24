@@ -1,10 +1,10 @@
-import java.io.*;
-import java.util.concurrent.TimeUnit;
+import java.io.*;// Enthält die Methoden zur Erstellung des FileWriter und BufferdWriter
+import java.util.concurrent.TimeUnit;// Enthält die Mehtoden zur Speicherplatz- und Laufzeitmessung
 
-public class WriterBenchmark {
-    private static final int Datensatz_Groesse = 500;// Anzahl  Datensätze
-    private static final String FileWriter = "file_writer.txt";// Dateiname für FileWriter
-    private static final String BufferedWriter = "buffered_writer.txt";// Dateiname für BufferedWriter
+public class WriterBenchmark {// Methode zum Benchmark und FileWriter gegenüber BufferedWriter
+    private static final int Datensatz_Groesse = 500;// Anzahl  der zu schreibenden Datensätze
+    private static final String FileWriter = "file_writer.txt";// Dateiname unter dem die Datei des FileWriters gespeichert wird
+    private static final String BufferedWriter = "buffered_writer.txt";// Dateiname unter dem die Daei des Buffered Writes gespeichert wird
 
     public static void main(String[] args) {
         compareWriters();// Vergleich der beiden Writer-Implementierungen
