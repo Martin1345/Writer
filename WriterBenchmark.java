@@ -18,20 +18,20 @@ public class WriterBenchmark {//Klasse zum Benchmarking von FileWriter und Buffe
         long bufferedWriter_Zeit = Laufzeitkomplexitaet(new BufferedWriterSupplier(), BufferedWriter);// Laufzeitkomplexität des BufferedWriters
         long bufferedWriter_Speicher = Speicherplatznutzung();// Speicherplatznutzung des BufferedWriters
 
-        System.out.println("\nLaufzeitvergleich:");// Ankündigung des Laufzeitvergleichers von FileWriter und BufferedWriter
+        System.out.println("\nLaufzeitvergleich:");// Ankündigung des Laufzeitvergleichs von FileWriter und BufferedWriter
         System.out.println("FileWriter: " + fileWriter_Zeit + " ms");// Ausgabe der Laufzeit des FileWriters in Millisekunden
 
         System.out.println("BufferedWriter: " + bufferedWriter_Zeit + " ms");// Ausgabe der Laufzeit des BufferedWriters in Millisekunden
 
         System.out.println("\nSpeicherverbrauch waehrend des Schreibens:");// Ankündigung des Speicherverbrauchs während des Schreibens
-        System.out.println("FileWriter: " + fileWriter_Speicher + " Bytes");// Ausgabe des Speicherplatzverbrauches des FileWriters während 
+        System.out.println("FileWriter: " + fileWriter_Speicher + " Bytes");// Ausgabe des Speicherplatzverbrauchs des FileWriters während 
         //des Schreibens
-        System.out.println("BufferedWriter: " + bufferedWriter_Speicher + " Bytes");// Ausgabe des Speicherplatzverbrauches des BufferedWriters  
+        System.out.println("BufferedWriter: " + bufferedWriter_Speicher + " Bytes");// Ausgabe des Speicherplatzverbrauchs des BufferedWriters  
         //während des Schreibens
 
         System.out.println("\nSpeicherplatzvergleich der Dateien:");// Ankündigung des Speicherplatzvergleichs der Dateien
-        System.out.println("FileWriter-Dateigroesse: " + Speicherkomplexitaet(FileWriter) + " Bytes");// Ausgabe der Dateigröße des FileWriters
-        System.out.println("BufferedWriter-Dateigroesse: " + Speicherkomplexitaet(BufferedWriter) + " Bytes");// Ausgabe der Dateigröße 
+        System.out.println("FileWriter-Dateigroesse: " + Speicherplatzkomplexitaet(FileWriter) + " Bytes");// Ausgabe der Dateigröße des FileWriters
+        System.out.println("BufferedWriter-Dateigroesse: " + Speicherplatzkomplexitaet(BufferedWriter) + " Bytes");// Ausgabe der Dateigröße 
         //des BufferedWriters
     }
 
@@ -76,7 +76,7 @@ public class WriterBenchmark {//Klasse zum Benchmarking von FileWriter und Buffe
     static class BufferedWriterSupplier implements WriterSupplier {// Methode zur Erstellung eines BufferedWriters auf Basis der 
         //WriterSupplier-Schnittstelle
         @Override
-        public Writer getWriter(String Dateiname) throws IOException {// Methode zum Abrufen eines BufferedWritersmit dem angegebenen Dateinamen
+        public Writer getWriter(String Dateiname) throws IOException {// Methode zum Abrufen eines BufferedWriters mit dem angegebenen Dateinamen
             return new BufferedWriter(new FileWriter(Dateiname));// Erstellung eines BufferedWriter-Objekts mit dem Dateinamen, das einen 
             //FileWriter verwendet
     }
